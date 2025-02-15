@@ -58,6 +58,7 @@ const PROVIDER_HANDLES_TEMPLATING: string[] = [
   "sambanova",
   "vertexai",
   "watsonx",
+  "nebius",
 ];
 
 const PROVIDER_SUPPORTS_IMAGES: string[] = [
@@ -75,6 +76,7 @@ const PROVIDER_SUPPORTS_IMAGES: string[] = [
   "vertexai",
   "azure",
   "scaleway",
+  "nebius",
 ];
 
 const MODEL_SUPPORTS_IMAGES: string[] = [
