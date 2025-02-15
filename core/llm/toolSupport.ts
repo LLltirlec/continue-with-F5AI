@@ -17,6 +17,18 @@ export const PROVIDER_TOOL_SUPPORT: Record<
       return true;
     }
   },
+  f5ai: (model) => {
+    // https://platform.openai.com/docs/guides/function-calling#models-supporting-function-calling
+    if (model.toLowerCase().startsWith("gpt-4")) {
+      return true;
+    }
+  },
+  f5ai: (model) => {
+    // https://platform.openai.com/docs/guides/function-calling#models-supporting-function-calling
+    if (model.toLowerCase().startsWith("gpt-4")) {
+      return true;
+    }
+  },
   gemini: (model) => {
     // All gemini models support function calling
     return model.toLowerCase().includes("gemini");

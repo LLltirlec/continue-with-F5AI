@@ -52,7 +52,7 @@ export class LLMReranker extends BaseLLM {
       {
         maxTokens: 1,
         model:
-          this.providerName.startsWith("openai") &&
+          (this.providerName.startsWith("openai") || this.providerName.startsWith("f5ai")) &&
           this.model.startsWith("gpt-4")
             ? "gpt-3.5-turbo"
             : this.model,

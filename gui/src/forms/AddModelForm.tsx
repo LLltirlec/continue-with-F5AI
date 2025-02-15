@@ -44,6 +44,7 @@ function AddModelForm({
 
   const popularProviderTitles = [
     providers["openai"]?.title || "",
+    providers["f5ai"]?.title || "",
     providers["anthropic"]?.title || "",
     providers["mistral"]?.title || "",
     providers["gemini"]?.title || "",

@@ -9,6 +9,7 @@ import { GeminiApi } from "./apis/Gemini.js";
 import { JinaApi } from "./apis/Jina.js";
 import { MoonshotApi } from "./apis/Moonshot.js";
 import { OpenAIApi } from "./apis/OpenAI.js";
+import { F5AIApi } from "./apis/F5AI.js";
 import { LLMConfig, OpenAIConfigSchema } from "./types.js";
 
 dotenv.config();
@@ -27,6 +28,8 @@ export function constructLlmApi(config: LLMConfig): BaseLlmApi | undefined {
   switch (config.provider) {
     case "openai":
       return new OpenAIApi(config);
+    case "f5ai":
+      return new F5AIApi(config);
     case "azure":
       return new AzureOpenAIApi(config);
     case "cohere":

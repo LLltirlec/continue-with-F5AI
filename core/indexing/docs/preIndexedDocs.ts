@@ -34,6 +34,12 @@ const preIndexedDocs: Record<
     rootUrl: "https://platform.openai.com/docs/",
     faviconUrl: "https://platform.openai.com/favicon.ico",
   },
+  "https://f5ai.ru/api": {
+    title: "F5AI",
+    startUrl: "https://f5ai.ru/api",
+    rootUrl: "https://f5ai.ru/api",
+    faviconUrl: "https://platform.openai.com/favicon.ico",
+  },
   "https://www.prisma.io/docs": {
     title: "Prisma",
     startUrl: "https://www.prisma.io/docs",

@@ -38,6 +38,7 @@ import Nebius from "./Nebius";
 import Nvidia from "./Nvidia";
 import Ollama from "./Ollama";
 import OpenAI from "./OpenAI";
+import F5AI from "./F5AI";
 import OpenRouter from "./OpenRouter";
 import Replicate from "./Replicate";
 import SageMaker from "./SageMaker";
@@ -72,6 +73,7 @@ export const LLMClasses = [
   Kindo,
   LlamaCpp,
   OpenAI,
+  F5AI,
   LMStudio,
   Mistral,
   Bedrock,
