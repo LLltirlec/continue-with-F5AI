@@ -91,6 +91,24 @@ export function addOpenAIKey(key: string) {
   });
 }
 
+export function addF5AIKey(key: string) {
+  editConfigJson((config) => {
+    config.models = config.models
+      .filter(
+        (model) =>
+          model.provider !== "free-trial" || model.model.startsWith("gpt"),
+      )
+      .map((m: ModelDescription) => {
+        if (m.provider === "free-trial") {
+          m.apiKey = key;
+          m.provider = "f5ai";
+        }
+        return m;
+      });
+    return config;
+  });
+}
+
 export function deleteModel(title: string) {
   editConfigJson((config) => {
     config.models = config.models.filter((m: any) => m.title !== title);

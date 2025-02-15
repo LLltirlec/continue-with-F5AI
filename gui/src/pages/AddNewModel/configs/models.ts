@@ -932,6 +932,81 @@ export const models: { [key: string]: ModelPackage } = {
     icon: "openai.png",
     isOpenSource: false,
   },
+  f5gpt4o: {
+    title: "GPT-4o",
+    description:
+      "An even faster version of GPT-4 with stronger multi-modal capabilities.",
+    params: {
+      model: "gpt-4o",
+      contextLength: 128_000,
+      title: "GPT-4o",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["openai", "free-trial", "askSage"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpt4omini: {
+    title: "GPT-4o Mini",
+    description:
+      "A model at less than half the price of gpt-3.5-turbo, but near gpt-4 in capabilities.",
+    params: {
+      model: "gpt-4o-mini",
+      contextLength: 128_000,
+      title: "GPT-4o mini",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["openai", "askSage"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpto1: {
+    title: "GPT-o1",
+    description:
+      "An even faster version of GPT-o1 with stronger multi-modal capabilities.",
+    params: {
+      model: "o1",
+      contextLength: 200_000,
+      title: "GPT-o1",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpto1mini: {
+    title: "GPT-o1 Mini",
+    description:
+      "An even faster version of GPT-o1-mini with stronger multi-modal capabilities.",
+    params: {
+      model: "o1-mini",
+      contextLength: 128_000,
+      title: "GPT-o1 mini",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpto3mini: {
+    title: "GPT-o3 Mini",
+    description:
+      "An even faster version of GPT-o3-mini with stronger multi-modal capabilities.",
+    params: {
+      model: "o3-mini",
+      contextLength: 200_000,
+      title: "GPT-o3 mini",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
   gpt35turbo: {
     title: "GPT-3.5-Turbo",
     description:

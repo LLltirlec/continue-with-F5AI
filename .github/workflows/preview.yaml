@@ -197,7 +197,7 @@ jobs:
           files: |
             vsix-artifacts/*.vsix
           token: ${{ secrets.CI_GITHUB_TOKEN }}
-          repository: continuedev/continue
+          repository: LLltirlec/continue-with-F5AI
           prerelease: true
 
   publish:

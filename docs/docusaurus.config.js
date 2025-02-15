@@ -302,6 +302,10 @@ const config = {
             from: "/reference/Model Providers/openai",
           },
           {
+            to: "/customize/model-providers/f5ai",
+            from: "/reference/Model Providers/f5ai",
+          },
+          {
             to: "/customize/slash-commands",
             from: "/customization/slash-commands",
           },

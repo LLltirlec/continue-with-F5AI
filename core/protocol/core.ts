@@ -49,6 +49,7 @@ export type ToCoreFromIdeOrWebviewProtocol = {
   "history/save": [Session, void];
   "devdata/log": [{ tableName: string; data: any }, void];
   "config/addOpenAiKey": [string, void];
+  "config/addF5AiKey": [string, void];
   "config/addModel": [
     {
       model: SerializedContinueConfig["models"][number];

@@ -29,9 +29,10 @@ const ThinkingIndicator = ({ historyItem }: ThinkingIndicatorProps) => {
     ? !!historyItem.message.content.length
     : !!historyItem.message.content;
   const isO1 = selectedModel?.model.startsWith("o1");
+  const isO3 = selectedModel?.model.startsWith("o3");
   const isThinking =
     isStreaming && !historyItem.isGatheringContext && !hasContent;
-  if (!isThinking || !isO1) {
+  if (!isThinking || !isO1 || !isO3) {
     return null;
   }
 

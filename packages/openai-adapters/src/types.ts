@@ -32,6 +32,7 @@ export const BasePlusConfig = BaseConfig.extend({
 export const OpenAIConfigSchema = BasePlusConfig.extend({
   provider: z.union([
     z.literal("openai"),
+    z.literal("f5ai"),
     z.literal("mistral"),
     z.literal("voyage"),
     z.literal("deepinfra"),
@@ -100,6 +101,7 @@ export type JinaConfig = z.infer<typeof JinaConfigSchema>;
 // Discriminated union
 export const LLMConfigSchema = z.discriminatedUnion("provider", [
   OpenAIConfigSchema,
+  F5AIConfigSchema,
   MoonshotConfigSchema,
   DeepseekConfigSchema,
   CohereConfigSchema,
