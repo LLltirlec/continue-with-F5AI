@@ -4,10 +4,6 @@ import {
 } from "openai/resources/index";
 
 import {
-  F5AIChatCompletionCreateParams,
-} from "./openai-overrides";
-
-import {
   ChatMessage,
   CompletionOptions,
   LLMOptions,
@@ -136,15 +132,15 @@ class F5AI extends BaseLLM {
   protected _convertArgs(
     options: CompletionOptions,
     messages: ChatMessage[],
-  ): F5AIChatCompletionCreateParams {
-    const finalOptions = toChatBody(messages, options) as F5AIChatCompletionCreateParams;
+  ): ChatCompletionCreateParams {
+    const finalOptions = toChatBody(messages, options);
 
     finalOptions.stop = options.stop?.slice(0, this.getMaxStopWords());
 
     // OpenAI o1-preview and o1-mini:
     if (this.isO1Model(options.model) || this.isO3Model(options.model)) {
       // a) use max_completion_tokens instead of max_tokens
-      finalOptions.max_completion_tokens = options.maxTokens?.toString();
+      finalOptions.max_completion_tokens = options.maxTokens;
       finalOptions.max_tokens = undefined;
 
       // b) don't support system message
@@ -163,7 +159,7 @@ class F5AI extends BaseLLM {
     if (this.isGPTModel(options.model)) {
       // a) use max_completion_tokens instead of max_tokens
       finalOptions.max_completion_tokens = undefined;
-      finalOptions.max_tokens = options.maxTokens?.toString();
+      finalOptions.max_tokens = options.maxTokens;
 
       // b) don't support system message
       finalOptions.messages = formatMessageForO1(finalOptions.messages);
@@ -251,47 +247,39 @@ class F5AI extends BaseLLM {
   protected modifyChatBody(
     body: ChatCompletionCreateParams,
   ): ChatCompletionCreateParams {
-    // Приводим body к локальному типу для выполнения преобразований
-    const f5Body = body as F5AIChatCompletionCreateParams;
-
-    // Обрезаем stop-слова
-    f5Body.stop = f5Body.stop?.slice(0, this.getMaxStopWords());
+    body.stop = body.stop?.slice(0, this.getMaxStopWords());
 
     // Для моделей o1-preview и o1-mini
-    if (this.isO1Model(f5Body.model) || this.isO3Model(f5Body.model)) {
-      // Преобразуем max_tokens (число) в строку и присваиваем в max_completion_tokens
-      f5Body.max_completion_tokens =
-        f5Body.max_tokens !== undefined ? f5Body.max_tokens.toString() : undefined;
-      f5Body.max_tokens = undefined;
-      f5Body.messages = formatMessageForO1(f5Body.messages);
+    if (this.isO1Model(body.model) || this.isO3Model(body.model)) {
+      // a) use max_completion_tokens instead of max_tokens
+      body.max_completion_tokens = body.max_tokens;
+      body.max_tokens = undefined;
+
+      // b) don't support system message
+      body.messages = formatMessageForO1(body.messages);
     }
 
-    if (this.isGPTModel(f5Body.model)) {
-      // Преобразуем max_tokens (число) в строку и присваиваем в max_completion_tokens
-      f5Body.max_completion_tokens = undefined;
-      f5Body.max_tokens =
-        f5Body.max_tokens !== undefined ? f5Body.max_tokens.toString() : undefined;
-      f5Body.messages = formatMessageForO1(f5Body.messages);
-    }
+    // doesn't support streaming
+    body.stream = false;
 
-    if (f5Body.prediction && this.supportsPrediction(f5Body.model)) {
-      if (f5Body.presence_penalty) {
-        f5Body.presence_penalty = undefined;
+    if (body.prediction && this.supportsPrediction(body.model)) {
+      if (body.presence_penalty) {
+        body.presence_penalty = undefined;
       }
-      if (f5Body.frequency_penalty) {
-        f5Body.frequency_penalty = undefined;
+      if (body.frequency_penalty) {
+        body.frequency_penalty = undefined;
       }
-      f5Body.max_completion_tokens = undefined;
+      body.max_completion_tokens = undefined;
     }
 
-    if (f5Body.tools?.length) {
-      // Для соблюдения схемы (например, для параллельного вызова функций)
-      f5Body.parallel_tool_calls = false;
+    if (body.tools?.length) {
+      // To ensure schema adherence: https://platform.openai.com/docs/guides/function-calling#parallel-function-calling-and-structured-outputs
+      // In practice, setting this to true and asking for multiple tool calls
+      // leads to "arguments" being something like '{"file": "test.ts"}{"file": "test.js"}'
+      body.parallel_tool_calls = false;
     }
 
-    // Приводим обратно к типу ChatCompletionCreateParams.
-    // Если прямое приведение не проходит, можно воспользоваться двойным приведением:
-    return f5Body as unknown as ChatCompletionCreateParams;
+    return body;
   }
 
   protected async *_legacystreamComplete(
