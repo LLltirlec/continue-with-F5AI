@@ -2,6 +2,7 @@ import { Anthropic } from "./providers/anthropic.js";
 import { Azure } from "./providers/azure.js";
 import { Bedrock } from "./providers/bedrock.js";
 import { Cohere } from "./providers/cohere.js";
+import { F5Ai } from "./providers/f5ai.js";
 import { Gemini } from "./providers/gemini.js";
 import { Mistral } from "./providers/mistral.js";
 import { Ollama } from "./providers/ollama.js";
@@ -13,6 +14,7 @@ import { LlmInfo, ModelProvider, UseCase } from "./types.js";
 
 export const allModelProviders: ModelProvider[] = [
   OpenAi,
+  F5Ai,
   Gemini,
   Anthropic,
   Mistral,

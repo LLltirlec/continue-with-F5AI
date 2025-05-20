@@ -46,6 +46,7 @@ import { PROVIDER_TOOL_SUPPORT } from "./toolSupport.js";
 const PROVIDER_HANDLES_TEMPLATING: string[] = [
   "lmstudio",
   "openai",
+  "f5ai",
   "ollama",
   "together",
   "novita",
@@ -64,6 +65,7 @@ const PROVIDER_HANDLES_TEMPLATING: string[] = [
 
 const PROVIDER_SUPPORTS_IMAGES: string[] = [
   "openai",
+  "f5ai",
   "ollama",
   "gemini",
   "free-trial",
@@ -161,7 +163,7 @@ const PARALLEL_PROVIDERS: string[] = [
 ];
 
 function llmCanGenerateInParallel(provider: string, model: string): boolean {
-  if (provider === "openai") {
+  if (provider === "openai" || provider === "f5ai") {
     return model.includes("gpt");
   }
 

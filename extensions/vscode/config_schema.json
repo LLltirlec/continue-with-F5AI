@@ -187,6 +187,7 @@
           "description": "The provider of the model. This is used to determine the type of model, and how to interact with it.",
           "enum": [
             "openai",
+            "f5ai",
             "free-trial",
             "anthropic",
             "anthropic-vertexai",
@@ -237,6 +238,7 @@
           ],
           "markdownEnumDescriptions": [
             "### OpenAI\nUse gpt-4, gpt-3.5-turbo, or any other OpenAI model. See [here](https://openai.com/product#made-for-developers) to obtain an API key.\n\n> [Reference](https://docs.continue.dev/reference/Model%20Providers/openai)",
+            "### F5AI\nUse gpt-4, gpt-3.5-turbo, or any other OpenAI model. See [here](https://dev.f5ai.ru/keys) to obtain an API key.\n\n> [Reference](https://f5ai.ru/api)",
             "### Free Trial\nNew users can try out Continue for free using a proxy server that securely makes calls to OpenAI using our API key. If you are ready to use your own API key or have used all 250 free uses, you can enter your API key in config.json where it says `apiKey=\"\"` or select another model provider.\n> [Reference](https://docs.continue.dev/reference/Model%20Providers/freetrial)",
             "### Anthropic\nTo get started with Anthropic models, you first need to sign up for the open beta [here](https://claude.ai/login) to obtain an API key.\n> [Reference](https://docs.continue.dev/reference/Model%20Providers/anthropicllm)",
             "### Anthropic Vertex AI\nTo get started you need to enable the [Vertex AI API](https://console.cloud.google.com/marketplace/product/google/aiplatform.googleapis.com) and set up the [Google Application Default Credentials](https://cloud.google.com/docs/authentication/provide-credentials-adc).",
@@ -451,7 +453,7 @@
           "title": "Api Type",
           "markdownDescription": "OpenAI API type, either `openai` or `azure`",
           "x-intellij-html-description": "OpenAI API type, either <code>openai</code> or <code>azure</code>",
-          "enum": ["openai", "azure"]
+          "enum": ["openai", "f5ai", "azure"]
         },
         "apiVersion": {
           "title": "Api Version",
@@ -505,6 +507,7 @@
               "provider": {
                 "enum": [
                   "openai",
+                  "f5ai",
                   "anthropic",
                   "cohere",
                   "gemini",
@@ -560,7 +563,7 @@
           "if": {
             "properties": {
               "provider": {
-                "enum": ["openai"]
+                "enum": ["openai", "f5ai"]
               }
             },
             "required": ["provider"]
@@ -644,7 +647,7 @@
           "if": {
             "properties": {
               "provider": {
-                "enum": ["openai"]
+                "enum": ["openai", "f5ai"]
               }
             },
             "required": ["provider"]
@@ -767,7 +770,7 @@
           "if": {
             "properties": {
               "provider": {
-                "enum": ["openai"]
+                "enum": ["openai", "f5ai"]
               },
               "apiType": {
                 "not": {
@@ -1490,7 +1493,7 @@
           "if": {
             "properties": {
               "provider": {
-                "enum": ["openai"]
+                "enum": ["openai", "f5ai"]
               }
             },
             "required": ["provider"]
@@ -2833,6 +2836,7 @@
                 "transformers.js",
                 "ollama",
                 "openai",
+                "f5ai",
                 "cohere",
                 "free-trial",
                 "continue-proxy",

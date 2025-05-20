@@ -83,6 +83,46 @@ export const providers: Partial<Record<string, ProviderInfo>> = {
     ],
     apiKeyUrl: "https://platform.openai.com/account/api-keys",
   },
+  f5ai: {
+    title: "F5AI",
+    provider: "f5ai",
+    description: "Use gpt-4, gpt-3.5-turbo, or any other OpenAI model",
+    longDescription:
+      "Use gpt-4, gpt-3.5-turbo, or any other OpenAI model. See [here](https://openai.com/product#made-for-developers) to obtain an API key.",
+    icon: "openai.png",
+    tags: [ModelProviderTags.RequiresApiKey],
+    packages: [
+      models.f5gpt4o,
+      models.f5gpt4omini,
+      models.f5gpt41,
+      models.f5gpt41mini,
+      models.f5gpt41nano,
+      models.f5gpt45,
+      models.f5gpto1,
+      models.f5gpto1mini,
+      models.f5gpto3,
+      models.f5gpto3mini,
+      models.f5gpto4mini,
+      {
+        ...models.AUTODETECT,
+        params: {
+          ...models.AUTODETECT.params,
+          title: "F5AI",
+        },
+      },
+    ],
+    collectInputFor: [
+      {
+        inputType: "text",
+        key: "apiKey",
+        label: "API Key",
+        placeholder: "Enter your OpenAI API key",
+        required: true,
+      },
+      ...completionParamsInputsConfigs,
+    ],
+    apiKeyUrl: "https://dev.f5ai.ru/keys",
+  },
   anthropic: {
     title: "Anthropic",
     provider: "anthropic",

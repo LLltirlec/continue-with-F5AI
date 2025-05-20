@@ -4,6 +4,7 @@ const modelDescriptionSchema = z.object({
   title: z.string(),
   provider: z.enum([
     "openai",
+    "f5ai",
     "anthropic",
     "cohere",
     "ollama",
@@ -86,6 +87,7 @@ const embeddingsProviderSchema = z.object({
     "transformers.js",
     "ollama",
     "openai",
+    "f5ai",
     "cohere",
     "free-trial",
     "gemini",

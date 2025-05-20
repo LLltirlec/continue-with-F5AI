@@ -55,6 +55,7 @@ export type ToCoreFromIdeOrWebviewProtocol = {
   "history/clear": [undefined, void];
   "devdata/log": [DevDataLogEvent, void];
   "config/addOpenAiKey": [string, void];
+  "config/addF5AiKey": [string, void];
   "config/addModel": [
     {
       model: SerializedContinueConfig["models"][number];

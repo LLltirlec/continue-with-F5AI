@@ -4,6 +4,7 @@ import { AnthropicApi } from "./apis/Anthropic.js";
 import { AzureOpenAIApi } from "./apis/AzureOpenAI.js";
 import { CohereApi } from "./apis/Cohere.js";
 import { DeepSeekApi } from "./apis/DeepSeek.js";
+import { F5AIApi } from "./apis/F5AI.js";
 import { GeminiApi } from "./apis/Gemini.js";
 import { InceptionApi } from "./apis/Inception.js";
 import { JinaApi } from "./apis/Jina.js";
@@ -30,6 +31,8 @@ export function constructLlmApi(config: LLMConfig): BaseLlmApi | undefined {
   switch (config.provider) {
     case "openai":
       return new OpenAIApi(config);
+    case "f5ai":
+      return new F5AIApi(config);
     case "azure":
       return new AzureOpenAIApi(config);
     case "cohere":

@@ -102,7 +102,7 @@ export abstract class BaseLLM implements ILLM {
   }
 
   supportsCompletions(): boolean {
-    if (["openai", "azure"].includes(this.providerName)) {
+    if (["openai", "f5ai", "azure"].includes(this.providerName)) {
       if (
         this.apiBase?.includes("api.groq.com") ||
         this.apiBase?.includes("api.mistral.ai") ||
@@ -398,7 +398,7 @@ export abstract class BaseLLM implements ILLM {
             }
           } else if (
             resp.status === 404 &&
-            resp.url.includes("api.openai.com")
+            (resp.url.includes("api.openai.com") || resp.url.includes("dev.api.f5ai.ru"))
           ) {
             text =
               "You may need to add pre-paid credits before using the OpenAI API.";

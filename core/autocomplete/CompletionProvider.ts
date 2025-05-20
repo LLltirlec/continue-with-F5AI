@@ -1,6 +1,7 @@
 import { ConfigHandler } from "../config/ConfigHandler.js";
 import { TRIAL_FIM_MODEL } from "../config/onboarding.js";
 import { IDE, ILLM } from "../index.js";
+import F5AI from "../llm/llms/F5AI.js";
 import OpenAI from "../llm/llms/OpenAI.js";
 import { DEFAULT_AUTOCOMPLETE_OPTS } from "../util/parameters.js";
 
@@ -73,7 +74,7 @@ export class CompletionProvider {
       llm.completionOptions.temperature = 0.01;
     }
 
-    if (llm instanceof OpenAI) {
+    if (llm instanceof OpenAI || llm instanceof F5AI) {
       llm.useLegacyCompletionsEndpoint = true;
     } else if (
       llm.providerName === "free-trial" &&

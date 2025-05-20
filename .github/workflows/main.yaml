@@ -202,7 +202,7 @@ jobs:
           files: |
             vsix-artifacts/*.vsix
           token: ${{ secrets.CI_GITHUB_TOKEN }}
-          repository: continuedev/continue
+          repository: LLltirlec/continue-with-F5AI
 
   publish:
     runs-on: ubuntu-latest

@@ -21,6 +21,7 @@ import Cohere from "./Cohere";
 import DeepInfra from "./DeepInfra";
 import Deepseek from "./Deepseek";
 import Docker from "./Docker";
+import F5AI from "./F5AI";
 import Fireworks from "./Fireworks";
 import Flowise from "./Flowise";
 import FreeTrial from "./FreeTrial";
@@ -83,6 +84,7 @@ export const LLMClasses = [
   Kindo,
   LlamaCpp,
   OpenAI,
+  F5AI,
   OVHcloud,
   LMStudio,
   Mistral,

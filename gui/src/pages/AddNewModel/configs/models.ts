@@ -1030,6 +1030,171 @@ export const models: { [key: string]: ModelPackage } = {
     icon: "openai.png",
     isOpenSource: false,
   },
+  f5gpt4o: {
+    title: "GPT-4o",
+    description:
+      "An even faster version of GPT-4 with stronger multi-modal capabilities.",
+    params: {
+      model: "gpt-4o",
+      contextLength: 128_000,
+      title: "GPT-4o",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpt4omini: {
+    title: "GPT-4o Mini",
+    description:
+      "A model at less than half the price of gpt-3.5-turbo, but near gpt-4 in capabilities.",
+    params: {
+      model: "gpt-4o-mini",
+      contextLength: 128_000,
+      title: "GPT-4o mini",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpt41: {
+    title: "GPT-4.1",
+    description:
+      "An even faster version of GPT-4 with stronger multi-modal capabilities.",
+    params: {
+      model: "gpt-4.1",
+      contextLength: 1_047_576,
+      title: "GPT-4.1",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpt41mini: {
+    title: "GPT-4.1 Mini",
+    description:
+      "A model at less than half the price of gpt-3.5-turbo, but near gpt-4 in capabilities.",
+    params: {
+      model: "gpt-4.1-mini",
+      contextLength: 1_047_576,
+      title: "GPT-4.1 mini",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpt41nano: {
+    title: "GPT-4.1 Nano",
+    description:
+      "A model at less than half the price of gpt-3.5-turbo, but near gpt-4 in capabilities.",
+    params: {
+      model: "gpt-4.1-nano",
+      contextLength: 1_047_576,
+      title: "GPT-4.1 nano",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpt45: {
+    title: "GPT-4.5 Preview",
+    description:
+      "An even faster version of GPT-4 with stronger multi-modal capabilities.",
+    params: {
+      model: "gpt-4.5-preview",
+      contextLength: 128_000,
+      title: "GPT-4.1 preview",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpto1: {
+    title: "GPT-o1",
+    description:
+      "An even faster version of GPT-o1 with stronger multi-modal capabilities.",
+    params: {
+      model: "o1",
+      contextLength: 128_000,
+      title: "GPT-o1",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpto1mini: {
+    title: "GPT-o1 Mini",
+    description:
+      "An even faster version of GPT-o1-mini with stronger multi-modal capabilities.",
+    params: {
+      model: "o1-mini",
+      contextLength: 128_000,
+      title: "GPT-o1 mini",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpto3: {
+    title: "GPT-o3",
+    description:
+      "An even faster version of GPT-o1 with stronger multi-modal capabilities.",
+    params: {
+      model: "o3",
+      contextLength: 128_000,
+      title: "GPT-o3",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpto3mini: {
+    title: "GPT-o3 Mini",
+    description:
+      "An even faster version of GPT-o3-mini with stronger multi-modal capabilities.",
+    params: {
+      model: "o3-mini",
+      contextLength: 128_000,
+      title: "GPT-o3 mini",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
+  f5gpto4mini: {
+    title: "GPT-o4 Mini",
+    description:
+      "An even faster version of GPT-o3-mini with stronger multi-modal capabilities.",
+    params: {
+      model: "o4-mini",
+      contextLength: 128_000,
+      title: "GPT-o4 mini",
+      systemMessage:
+        "You are an expert software developer. You give helpful and concise responses.",
+    },
+    providerOptions: ["f5ai"],
+    icon: "openai.png",
+    isOpenSource: false,
+  },
   claude35Sonnet: {
     title: "Claude 3.5 Sonnet",
     description:
