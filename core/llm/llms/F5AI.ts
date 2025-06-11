@@ -60,7 +60,7 @@ class F5AI extends BaseLLM {
 
   static providerName = "f5ai";
   static defaultOptions: Partial<LLMOptions> | undefined = {
-    apiBase: "https://dev.api.f5ai.ru/v1/",
+    apiBase: "https://api.f5ai.ru/v1/",
     maxEmbeddingBatchSize: 128,
   };
 
@@ -120,7 +120,7 @@ class F5AI extends BaseLLM {
       return 16;
     } else if (
       url.port === "1337" ||
-      url.host === "dev.api.f5ai.ru" ||
+      url.host === "api.f5ai.ru" ||
       url.host === "api.openai.com" ||
       url.host === "api.groq.com" ||
       this.apiType === "azure"

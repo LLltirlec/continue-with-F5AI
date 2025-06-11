@@ -398,7 +398,7 @@ export abstract class BaseLLM implements ILLM {
             }
           } else if (
             resp.status === 404 &&
-            (resp.url.includes("api.openai.com") || resp.url.includes("dev.api.f5ai.ru"))
+            (resp.url.includes("api.openai.com") || resp.url.includes("api.f5ai.ru"))
           ) {
             text =
               "You may need to add pre-paid credits before using the OpenAI API.";

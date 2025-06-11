@@ -22,7 +22,7 @@ import {
 
 export class F5AIApi implements BaseLlmApi {
   openai: OpenAI;
-  apiBase: string = "https://dev.api.f5ai.ru/v1/";
+  apiBase: string = "https://api.f5ai.ru/v1/";
 
   constructor(protected config: z.infer<typeof OpenAIConfigSchema>) {
     this.apiBase = config.apiBase ?? this.apiBase;
@@ -35,7 +35,7 @@ export class F5AIApi implements BaseLlmApi {
 
   modifyChatBody<T extends ChatCompletionCreateParams>(body: T): T {
     // o-series models - only apply for official OpenAI API
-    const isOfficialOpenAIAPI = this.apiBase === "https://dev.api.f5ai.ru/v1/";
+    const isOfficialOpenAIAPI = this.apiBase === "https://api.f5ai.ru/v1/";
     if (isOfficialOpenAIAPI) {
       if (body.model.startsWith("o")) {
         // a) use max_completion_tokens instead of max_tokens
